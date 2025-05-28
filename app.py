@@ -1,15 +1,24 @@
 import streamlit as st
+from langchain_openai import ChatOpenAI
 
-st.title("サンプルアプリ①: 簡単なWebアプリ")
+from langchain.schema import SystemMessage, HumanMessage, AIMessage
 
-input_message = st.text_input(label="文字数のカウント対象となるテキストを入力してください。")
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
 
-text_count = len(input_message)
+messages = [
 
-if st.button("実行"):
+    SystemMessage(content="You are a helpful assistant."),
 
-    st.write(f"文字数: **{text_count}**")
+    HumanMessage(content="私の名前は大久保雅子です"),
 
+    AIMessage(content="大久保雅子です"),
 
+    HumanMessage(content="私の名前が分かりますか？"),
 
+]
 
+result = llm(messages)
+
+st.write(result.content)
+
+st.divider()
