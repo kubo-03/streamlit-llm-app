@@ -4,9 +4,9 @@ from langchain_openai import ChatOpenAI, OpenAI
 
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 
-load_dotenv()  # .env ファイルから環境変数を読み込む
-
-client = OpenAI()  # .env の OPENAI_API_KEY を使う
+# load_dotenv()  # .env ファイルから環境変数を読み込む
+# 
+# client = OpenAI()  # .env の OPENAI_API_KEY を使う
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
 
